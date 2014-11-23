@@ -1,10 +1,6 @@
 package redis_timeseries
 
-import (
-	"time"
-
-	"github.com/jinzhu/now"
-)
+import "time"
 
 // Get returns unix timestamps of the times closest to each time argument
 // as specified by the interval.
@@ -24,7 +20,7 @@ func Get(interval time.Duration, times ...time.Time) []int64 {
 	var results = []int64{}
 
 	for _, t := range times {
-		start := now.New(t).BeginningOfHour()
+		start := time.Date(2000, t.Month(), t.Day(), t.Hour(), 00, 0, 0, time.UTC)
 
 		for {
 			// if t falls on start+interval, then we add start+interval
