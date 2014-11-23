@@ -8,6 +8,8 @@ redis_timeseries is an library that helps storing timeseries in redis. This libr
 go get -u github.com/sent-hil/redis_timeseries
 ```
 
+## Usage
+
 redis_timeseries assumes use of sets or sorted sets to store the values. For example, you want to build a timeseries with interval of 15 minutes, these are the guidelines:
 
 * timestamps from t=0 till t=15 belongs to t=0 bucket
