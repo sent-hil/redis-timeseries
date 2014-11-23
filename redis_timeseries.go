@@ -13,12 +13,13 @@ import (
 //   newyear := time.Date(2000, time.January, 01, 0, 0, 30, 0, time.UTC)
 //   newyearplus := time.Date(2000, time.January, 01, 0, 16, 0, 0, time.UTC)
 //
+//   // returns: []string{946684800, 946685700}
 //   results := Get(15*time.Minute, newyear, newyearplus)
 //
 // `newyear` falls between 00:00 and 00:15, so it returns 00:00.
 // `newyearplus` falls between 00:15 and 00:30, so it returns 00:15.
 //
-//  If a time falls on the interval, ie 00:15, it returns 00.15;
+// If a time falls on the interval, ie 00:15, it returns 00.15.
 func Get(interval time.Duration, times ...time.Time) []int64 {
 	var results = []int64{}
 
