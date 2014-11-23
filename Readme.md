@@ -8,13 +8,13 @@ redis_timeseries is an library that helps storing timeseries in redis. This libr
 go get -u github.com/sent-hil/redis_timeseries
 ```
 
-redis_timeseries assumes use of sets or sorted sets to store the values. For example, you want to build a timeseries with interval of 15 minutes. These are the rules:
+redis_timeseries assumes use of sets or sorted sets to store the values. For example, you want to build a timeseries with interval of 15 minutes, these are the guidelines:
 
 * timestamps from t=0 till t=15 belongs to t=0 bucket
 * timestamps from from t=15 till t=30 belongs to t=15 bucket
 * timestamps that occurs t=15 belongs to t=15 bucket
 
-`redis_timeseries#Get()` returns an array of bucket timestamps. Each result corresponding to the index location of argument.
+`redis_timeseries#Get()` accepts `time.Duration` as first argument and a variadic number of `time.Time` arguments and returns an array of bucket timestamps. Each result corresponding to the index location of argument.
 
 ```go
 // when: time.Now() -> 2000-01-01 00:00:30 +0000 UTC
