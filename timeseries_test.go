@@ -1,4 +1,4 @@
-package redis_timeseries
+package timeseries
 
 import (
 	"testing"
