@@ -19,8 +19,6 @@ redis-timeseries assumes use of sets or sorted sets to store the values. For exa
 `timeseries#Get()` accepts `time.Duration` as first argument and a variadic number of `time.Time` arguments and returns an array of bucket timestamps. Each result corresponding to the index location of argument.
 
 ```go
-get "github.com/sent-hil/redis-timeseries"
-
 // when: time.Now() -> 2000-01-01 00:00:30 +0000 UTC
 // returns: []string{946684800}
 timeseries.Get(1*time.Minute, time.Now())
